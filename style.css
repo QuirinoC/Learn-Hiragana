@@ -1,5 +1,57 @@
-#hiraganaTitle {
-  text-align: center;
-  
 
+#content {
+  text-align: center;
+}
+.btn {
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: black;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 0px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: lightgray;
+  text-decoration: none;
+}
+#characters_select {
+  padding: 10px;
+}
+.chars {
+  background: white;
+  color: black;
+}
+
+#artistIMG {
+  height: 300px;
+  width: auto;
+}
+h1 { color: #ffffff; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  font-size: 40px;
+}
+#noImage {
+  color: red;
+}
+hr {
+	background-color: #1ED760;
+}
+#current_char {
+  text-align: center;
+  background-color: white;
+}
+#buttons {
+  text-align: center;
+  padding: 10px;
+}
+#characters_select {
+  text-align: center;
 }
