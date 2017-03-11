@@ -2,42 +2,50 @@
   <title>Learn Hiragana</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="jquery-ui.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="jquery.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="main.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
   </style>
 </head>
-<body bgcolor="lightblue">
+<body bgcolor="lightblue" id="body_">
 <!--My code goes here, please juanito, document this, you will
     thank me later-->
   <div id='hiraganaTitle'>
     <h1>Learn Hiragana</h1>
+    <center><button class="btn practiceToggle">Study hiragana chart</button></center>
   </div>
-  <div id="characters_select">
-    
-    <button class="btn chars" id="a">n</button>
-    <button class="btn chars" id="k">wa</button>
-    <button class="btn chars" id="r">ra</button>
-    <button class="btn chars" id="y">ya</button>
-    <button class="btn chars" id="m">ma</button>
-    <button class="btn chars" id="h">ha</button>
-    <button class="btn chars" id="n">na</button>
-    <button class="btn chars" id="t">ta</button>
-    <button class="btn chars" id="s">sa</button>
-    <button class="btn chars" id="k">ka</button>
-    <button class="btn chars" id="a">a</button>
+
+  <div id="practice">
+    <div id="characters_select">
+      
+      <button class="btn chars" id="a">n</button>
+      <button class="btn chars" id="k">wa</button>
+      <button class="btn chars" id="r">ra</button>
+      <button class="btn chars" id="y">ya</button>
+      <button class="btn chars" id="m">ma</button>
+      <button class="btn chars" id="h">ha</button>
+      <button class="btn chars" id="n">na</button>
+      <button class="btn chars" id="t">ta</button>
+      <button class="btn chars" id="s">sa</button>
+      <button class="btn chars" id="k">ka</button>
+      <button class="btn chars" id="a">a</button>
+    </div>
+    <div id="current_char">
+        <img src="hiragana_chars/a.png" id="character" height="400cm" width="400cm">
+    </div>
+    <div id="buttons">
+    <button class="btn opt" id="option0">a</button>
+    <button class="btn opt" id="option1">i</button>
+    <button class="btn opt" id="option2">u</button>
+    <button class="btn opt" id="option3">e</button>
+    <button class="btn opt" id="option4">o</button>
+    </div>
   </div>
-  <div id="current_char">
-      <img src="hiragana_chars/a.png" id="character" height="400cm" width="400cm">
+  <div id="chart">
+    <center>
+    <img src="hiragana_chars/hiragana.png" height=auto width="800"> </img>
+    </center>
   </div>
-  <div id="buttons">
-  <button class="btn option" id="option0">a</button>
-  <button class="btn option" id="option1">i</button>
-  <button class="btn option" id="option2">u</button>
-  <button class="btn option" id="option3">e</button>
-  <button class="btn option" id="option4">o</button>
-  </div>
-  <div id="slider"></div>
 </body>

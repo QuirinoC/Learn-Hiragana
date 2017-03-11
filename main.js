@@ -4,6 +4,9 @@
   Learn Hiragana & Katakana
 
 */
+function nonRepeatingRandom() {
+
+}
 function listInList(first,full) {
   //This function test if any element of first is in full
   //This flag is if something of first is inside of full
@@ -28,36 +31,37 @@ function removeListInList(first,full) {
   return full;
 }
 function updateOptions (workingCharacters,numberOfOptions) {
+  if (workingCharacters == 0) {
+    return
+  }
+  console.log("did you called me baby?");
   //This function takes 5 random characters from the workingCharacters the user chosed
   var newList = [];
-  //!!!Work on this
-  while (newList.length != 5 && workingCharacters.length == 0) {
-    console.log("i ran");
+  var indexList = [];
+  var characterList = [];
+  while (newList.length != 5 && workingCharacters.length != 0) {
+    //Takes 5 random numbers in the range of the number of workingCharacters
     randomNumber = Math.floor(Math.random() * workingCharacters.length);
     if (newList.indexOf(randomNumber) == -1) {
       newList.push(randomNumber);
     }
-    console.log(workingCharacters,workingCharacters.length);
-    
-    
   }
-  return newList
-  /*
-  console.log("did you called me?");
-  for (i = 0; i < numberOfOptions; i++) {
-    console.log(
-      i
-    );
-    
-    newList.push(workingCharacters[randomNumber]);
-    console.log(newList);
-    
-  
+  for (i = 0; i < newList.length; i++) {
+    characterList.push(workingCharacters[newList[i]]);
   }
-  */
-  return newList;
+  //console.log(characterList);
+    for (i = 0; i < numberOfOptions; i++) {
+      currentButton = ("#option" + String(i));
+      $(currentButton)[0].innerHTML = characterList[i];
+    }
+  var randomCharacterToShow = Math.floor(Math.random() * numberOfOptions);
+  currentChar = characterList[randomCharacterToShow]; 
+  $("#character").attr('src',"hiragana_chars/"+currentChar+".png");
+  return currentChar;
 }
 function main() {
+  //$("#current_char").hide();
+  $("#chart").hide();
     var a = [
       "a","i","u","e","o"
     ];
@@ -68,13 +72,13 @@ function main() {
       "sa","shi","su","se","so"
     ];
     var ta = [
-      "ta","chi","tsu","se","so"
+      "ta","chi","tsu","te","to"
     ];
     var na = [
       "na","ni","nu","ne","no"
     ];
     var ha = [
-      "ha","hi","hu","he","ho"
+      "ha","hi","fu","he","ho"
     ];
     var ma = [
       "ma","mi","mu","me","mo"
@@ -91,14 +95,12 @@ function main() {
     var n = [
       "n"
     ];
-  
-
- 
-
 
   characters = [];
+  currentChar = "a";
   //This is called whenever a button with the chars subclass is clicked
   $(".chars").click(function (){
+    
     //The eval works for having the variable name instead of a string, eval(a) == contnents in a not
     //a itself
     charsToAdd = eval(this.innerHTML);
@@ -110,53 +112,41 @@ function main() {
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','black');
       $(this).css('color','white');
-    } else {
+    } 
+    else {
       //Removes the characters that are already there
       characters = removeListInList(charsToAdd,characters);
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','white');
       $(this).css('color','black');
-    }
-     console.log(
-      characters
-    );
-    
-    
+      }
+    currentChar = updateOptions(characters,nOptions);
   });
-
-  $(".option").click(function (){
-
-    //!!!Work on this
-    options = updateOptions(characters,5);
-    console.log(options);
-  }); var options = updateOptions(characters,5);
-
   
-}
+  $(".practiceToggle").click(function () {
+    $("#chart").slideToggle('slow');
+    $("#practice").slideToggle('slow');
+    if (this.innerHTML == "Study hiragana chart") {
+      this.innerHTML = "Practice hiragana"
+    } else {
+      this.innerHTML = "Study hiragana chart"
+    }
+  });
+  
+    nOptions = 5;
+
+    $(".opt").click(function (){
+      $("#character")[0]
+      if (currentChar == this.innerHTML) {
+        $("#body_").attr('bgcolor',"lightblue");
+    } else {
+      $("#body_").attr('bgcolor',"red");
+    }
+      currentChar = updateOptions(characters,nOptions);
+    }); 
+    
+  
+  }
 $(document).ready(function (){
   main();
 });
-
-  /*Old code - Do not de comment
-  function getNewCharacter () {
-    randomNumber = Math.floor(Math.random() * characters.length);
-
-       $("#character").attr('src',characters[randomNumber].img);
-    console.log(characters[randomNumber].name);
-    
-   } getNewCharacter();
-  
-  //The this when clicked, refers to the button clicked, so its contents can be accessed
-  //without an if for each button
-  $(".btn").click(function() {
-    if (this.innerHTML == characters[randomNumber].name ) {
-      $("body").attr('bgcolor','lightblue');
-    } else {
-      $("body").attr('bgcolor','red');
-    }
-    getNewCharacter();
-
-
-  });
-}
-*/

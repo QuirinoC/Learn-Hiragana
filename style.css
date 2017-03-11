@@ -18,6 +18,16 @@
   background: lightgray;
   text-decoration: none;
 }
+.practiceToggle {
+  border-radius: 3px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: black;
+  padding: 5px 10px 5px 10px;
+  border: solid #000000 0px;
+  text-decoration: none;
+}
 #characters_select {
   padding: 10px;
 }
