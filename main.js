@@ -64,11 +64,17 @@ function updateOptions (workingCharacters,numberOfOptions) {
     characterList.push(workingCharacters[newList[i]]);
   }
   //console.log(characterList);
+  for (i = 0; i < 5; i++) {
+    currentButton = ("#option" + String(i));
+      $(currentButton).hide();
+  }
     for (i = 0; i < numberOfOptions; i++) {
       currentButton = ("#option" + String(i));
       $(currentButton)[0].innerHTML = characterList[i];
+      $(currentButton).show();
     }
   var randomCharacterToShow = Math.floor(Math.random() * numberOfOptions);
+  
   currentChar = characterList[randomCharacterToShow]; 
   $("#character").attr('src',"hiragana_chars/"+currentChar+".png");
   return currentChar;
@@ -76,6 +82,7 @@ function updateOptions (workingCharacters,numberOfOptions) {
 function main() {
   //$("#current_char").hide();
   $("#chart").hide();
+  $("#noSelection").hide();
     var a = [
       "a","i","u","e","o"
     ];
@@ -112,6 +119,7 @@ function main() {
 
   characters = [];
   currentChar = "a";
+  lastCharacter = -1;
   //This is called whenever a button with the chars subclass is clicked
   $(".chars").click(function (){
     
@@ -126,6 +134,10 @@ function main() {
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','black');
       $(this).css('color','white');
+      $(this)[0]['on'] = true;
+      console.log (
+        $(this)[0]['on']
+      );
     } 
     else {
       //Removes the characters that are already there
@@ -133,6 +145,10 @@ function main() {
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','white');
       $(this).css('color','black');
+      $(this)[0]['on'] = false;
+      console.log (
+        $(this)[0]['on']
+      );
     }
     currentChar = updateOptions(characters,nOptions);
   });
