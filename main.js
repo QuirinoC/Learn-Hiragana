@@ -148,14 +148,17 @@ function main() {
     currentChar = updateOptions(characters,nOptions);
 
     if (selectedButtons == 0) {
-      $("#current_char").hide();
-      $("#buttons").hide();
-      $("#noSelection").show();
+      $("#current_char").slideToggle('slow');
+      $("#buttons").slideToggle('slow');
+      $("#noSelection").slideToggle('slow');
     }
     else {
-      $("#current_char").show();
-      $("#buttons").show();
-      $("#noSelection").hide();
+      if (! $("#current_char").is(":visible")) {
+        $("#current_char").slideToggle('slow');
+      $("#buttons").slideToggle('slow');
+      $("#noSelection").slideToggle('slow');
+      }
+
     }
   });
   
