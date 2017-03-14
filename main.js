@@ -39,13 +39,27 @@ function updateOptions (workingCharacters,numberOfOptions) {
   var newList = [];
   var indexList = [];
   var characterList = [];
-  while (newList.length != 5 && workingCharacters.length != 0) {
-    //Takes 5 random numbers in the range of the number of workingCharacters
-    randomNumber = Math.floor(Math.random() * workingCharacters.length);
-    if (newList.indexOf(randomNumber) == -1) {
-      newList.push(randomNumber);
-    }
+  if (workingCharacters.length >= 5) {
+    while (newList.length != 5 && workingCharacters.length != 0) {
+      //Takes 5 random numbers in the range of the number of workingCharacters
+      randomNumber = Math.floor(Math.random() * workingCharacters.length);
+      if (newList.indexOf(randomNumber) == -1) {
+        newList.push(randomNumber);
+      }
+    } 
+  } 
+  else {
+    numberOfOptions = workingCharacters.length;
+    while (newList.length != characters.length && workingCharacters.length != 0) {
+      //Takes 5 random numbers in the range of the number of workingCharacters
+      randomNumber = Math.floor(Math.random() * workingCharacters.length);
+      if (newList.indexOf(randomNumber) == -1) {
+        newList.push(randomNumber);
+      }
+    } 
   }
+  console.log(characters.length);
+  
   for (i = 0; i < newList.length; i++) {
     characterList.push(workingCharacters[newList[i]]);
   }
@@ -84,7 +98,7 @@ function main() {
       "ma","mi","mu","me","mo"
     ];
     var ya = [
-      "ya","yi","yu","ye","yo"
+      "ya","yu","yo"
     ];
     var ra = [
       "ra","ri","ru","re","ro"
@@ -119,7 +133,7 @@ function main() {
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','white');
       $(this).css('color','black');
-      }
+    }
     currentChar = updateOptions(characters,nOptions);
   });
   
@@ -139,6 +153,10 @@ function main() {
       $("#character")[0]
       if (currentChar == this.innerHTML) {
         $("#body_").attr('bgcolor',"lightblue");
+        /*
+        indexToRemove = characters.indexOf(this.innerHTML);
+        characters = characters.splice(indexToRemove,1);
+        */
     } else {
       $("#body_").attr('bgcolor',"red");
     }
