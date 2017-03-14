@@ -31,15 +31,6 @@ function removeListInList(first,full) {
   return full;
 }
 function updateOptions (workingCharacters,numberOfOptions) {
-  if (selectedButtons == 0) {
-    $("#current_char").slideToggle('slow');
-    $("#buttons").slideToggle('slow');
-    $("#noSelection").slideToggle('slow');
-  } else {
-     $("#current_char").slideToggle('slow');
-    $("#buttons").slideToggle('slow');
-    $("#noSelection").slideToggle('slow');
-  }
   //This function takes 5 random characters from the workingCharacters the user chosed
   var newList = [];
   var indexList = [];
@@ -123,8 +114,10 @@ function main() {
   characters = [];
   currentChar = "a";
   lastCharacter = -1;
+  
   $("#current_char").hide();
   $("#buttons").hide();
+  
   /*
   $("#noSelection").hide();
   */
@@ -153,6 +146,17 @@ function main() {
       selectedButtons -= 1;
     }
     currentChar = updateOptions(characters,nOptions);
+
+    if (selectedButtons == 0) {
+      $("#current_char").hide();
+      $("#buttons").hide();
+      $("#noSelection").show();
+    }
+    else {
+      $("#current_char").show();
+      $("#buttons").show();
+      $("#noSelection").hide();
+    }
   });
   
   $(".practiceToggle").click(function () {
