@@ -31,10 +31,15 @@ function removeListInList(first,full) {
   return full;
 }
 function updateOptions (workingCharacters,numberOfOptions) {
-  if (workingCharacters == 0) {
-    return
+  if (selectedButtons == 0) {
+    $("#current_char").slideToggle('slow');
+    $("#buttons").slideToggle('slow');
+    $("#noSelection").slideToggle('slow');
+  } else {
+     $("#current_char").slideToggle('slow');
+    $("#buttons").slideToggle('slow');
+    $("#noSelection").slideToggle('slow');
   }
-  console.log("did you called me baby?");
   //This function takes 5 random characters from the workingCharacters the user chosed
   var newList = [];
   var indexList = [];
@@ -58,7 +63,6 @@ function updateOptions (workingCharacters,numberOfOptions) {
       }
     } 
   }
-  console.log(characters.length);
   
   for (i = 0; i < newList.length; i++) {
     characterList.push(workingCharacters[newList[i]]);
@@ -82,7 +86,6 @@ function updateOptions (workingCharacters,numberOfOptions) {
 function main() {
   //$("#current_char").hide();
   $("#chart").hide();
-  $("#noSelection").hide();
     var a = [
       "a","i","u","e","o"
     ];
@@ -116,10 +119,15 @@ function main() {
     var n = [
       "n"
     ];
-
+  selectedButtons = 0;
   characters = [];
   currentChar = "a";
   lastCharacter = -1;
+  $("#current_char").hide();
+  $("#buttons").hide();
+  /*
+  $("#noSelection").hide();
+  */
   //This is called whenever a button with the chars subclass is clicked
   $(".chars").click(function (){
     
@@ -134,10 +142,7 @@ function main() {
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','black');
       $(this).css('color','white');
-      $(this)[0]['on'] = true;
-      console.log (
-        $(this)[0]['on']
-      );
+      selectedButtons += 1;
     } 
     else {
       //Removes the characters that are already there
@@ -145,10 +150,7 @@ function main() {
       //Changes the visuals of the button to graphicaly exlpain you are using it
       $(this).css('background','white');
       $(this).css('color','black');
-      $(this)[0]['on'] = false;
-      console.log (
-        $(this)[0]['on']
-      );
+      selectedButtons -= 1;
     }
     currentChar = updateOptions(characters,nOptions);
   });
