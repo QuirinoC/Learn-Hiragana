@@ -167,19 +167,32 @@ function main() {
     }
     else {
       currentAlphabet = "hiragana";
-
+ 
     }
+    if (currentAlphabet == "hiragana") {
+       this.innerHTML = "Switch to katakana";
 
-    this.innerHTML = "Learn " + currentAlphabet;
-    currentChar = updateOptions(characters,nOptions);
-
-    if ($("#toggleChart")[0].innerHTML == "Study "+ currentAlphabet +" chart") {
-      $("#toggleChart")[0].innerHTML = "Practice "+ currentAlphabet;
-    } else {
-      $("#toggleChart")[0].innerHTML = "Study "+ currentAlphabet +" chart"
+       $(this).css('background','black');
+       $(this).css('color','white');
+       
     }
+    if (currentAlphabet == "katakana") {
+       this.innerHTML = "Switch to hiragana";
+  
+
+       $(this).css('background','white');
+       $(this).css('color','black');
+    }
+    $("#toggleChart")[0].innerHTML = "Practice " + currentAlphabet;
+    
+
+   
+
     $("#chartIMG").attr('src',currentAlphabet + "_chars/" + currentAlphabet + ".jpg");
+
+    currentChar = updateOptions(characters,nOptions);
   });
+  
   $("#toggleChart").click(function () {
     $("#chart").slideToggle('slow');
     $("#practice").slideToggle('slow');
