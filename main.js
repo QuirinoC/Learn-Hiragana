@@ -183,8 +183,19 @@ function main() {
        $(this).css('background','white');
        $(this).css('color','black');
     }
-    $("#toggleChart")[0].innerHTML = "Practice " + currentAlphabet;
     
+    if ($("#toggleChart")[0].innerHTML == "Practice hiragana") {
+      $("#toggleChart")[0].innerHTML = "Practice " + currentAlphabet;
+    }
+    if ($("#toggleChart")[0].innerHTML == "Practice katakana") {
+      $("#toggleChart")[0].innerHTML = "Practice " + currentAlphabet;
+    }
+    if ($("#toggleChart")[0].innerHTML == "Study hiragana chart") {
+      $("#toggleChart")[0].innerHTML = "Study " + currentAlphabet + " chart";
+    }
+   if ($("#toggleChart")[0].innerHTML == "Study katakana chart") {
+      $("#toggleChart")[0].innerHTML = "Study " + currentAlphabet + " chart";
+    }
 
    
 
