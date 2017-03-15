@@ -10,13 +10,18 @@
   color: #ffffff;
   font-size: 20px;
   background: black;
-  padding: 10px 20px 10px 20px;
+  padding: 5px 15px 5px 15px;
   border: solid #000000 0px;
   text-decoration: none;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 .btn:hover {
   background: lightgray;
   text-decoration: none;
+}
+#buttons {
+  text-align: center;
 }
 .practiceToggle {
   border-radius: 3px;
@@ -27,6 +32,20 @@
   padding: 5px 10px 5px 10px;
   border: solid #000000 0px;
   text-decoration: none;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.switch {
+  border-radius: 3px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: black;
+  padding: 5px 10px 5px 10px;
+  border: solid #000000 0px;
+  text-decoration: none;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 #characters_select {
   padding: 10px;
@@ -78,10 +97,6 @@ hr {
 #current_char {
   text-align: center;
   background-color: white;
-}
-#buttons {
-  text-align: center;
-  padding: 10px;
 }
 #characters_select {
   text-align: center;

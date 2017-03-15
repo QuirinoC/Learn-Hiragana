@@ -14,8 +14,12 @@
 <!--My code goes here, please juanito, document this, you will
     thank me later-->
   <div id='hiraganaTitle'>
-    <h1>Learn Hiragana</h1>
-    <center><button class="btn practiceToggle">Study hiragana chart</button></center>
+    <h1>Learn Hiragana & Katakana</h1>
+
+    <center>
+      <button class="btn practiceToggle" id="toggleChart">Study hiragana chart</button>
+      <button class="btn switch" id="switchAlphabet">Switch to katakana</button>
+      </center>
   </div>
 
   <div id="practice">
@@ -46,7 +50,7 @@
   </div>
   <div id="chart">
     <center>
-    <img src="hiragana_chars/hiragana.jpg" height=auto width="800"> </img>
+    <img src="hiragana_chars/hiragana.jpg" id="chartIMG" height=auto width="800"> </img>
     </center>
   </div>
   <div id="noSelection">

@@ -46,7 +46,7 @@ function updateOptions (workingCharacters,numberOfOptions) {
   } 
   else {
     numberOfOptions = workingCharacters.length;
-    while (newList.length != characters.length && workingCharacters.length != 0) {
+    while (newList.length != workingCharacters.length && workingCharacters.length != 0) {
       //Takes 5 random numbers in the range of the number of workingCharacters
       randomNumber = Math.floor(Math.random() * workingCharacters.length);
       if (newList.indexOf(randomNumber) == -1) {
@@ -71,7 +71,7 @@ function updateOptions (workingCharacters,numberOfOptions) {
   var randomCharacterToShow = Math.floor(Math.random() * numberOfOptions);
   
   currentChar = characterList[randomCharacterToShow]; 
-  $("#character").attr('src',"hiragana_chars/"+currentChar+".png");
+  $("#character").attr('src',currentAlphabet+"_chars/"+currentChar+".png");
   return currentChar;
 }
 function main() {
@@ -110,10 +110,10 @@ function main() {
     var n = [
       "n"
     ];
-  selectedButtons = 0;
-  characters = [];
-  currentChar = "a";
-  lastCharacter = -1;
+  var selectedButtons = 0;
+  var characters = [];
+  currentAlphabet = "hiragana";
+  //currentChar = "a";
   
   $("#current_char").hide();
   $("#buttons").hide();
@@ -161,14 +161,32 @@ function main() {
 
     }
   });
-  
-  $(".practiceToggle").click(function () {
+  $("#switchAlphabet").click(function(){
+    if (currentAlphabet == "hiragana") {
+      currentAlphabet = "katakana"
+    }
+    else {
+      currentAlphabet = "hiragana";
+
+    }
+
+    this.innerHTML = "Learn " + currentAlphabet;
+    currentChar = updateOptions(characters,nOptions);
+
+    if ($("#toggleChart")[0].innerHTML == "Study "+ currentAlphabet +" chart") {
+      $("#toggleChart")[0].innerHTML = "Practice "+ currentAlphabet;
+    } else {
+      $("#toggleChart")[0].innerHTML = "Study "+ currentAlphabet +" chart"
+    }
+    $("#chartIMG").attr('src',currentAlphabet + "_chars/" + currentAlphabet + ".jpg");
+  });
+  $("#toggleChart").click(function () {
     $("#chart").slideToggle('slow');
     $("#practice").slideToggle('slow');
-    if (this.innerHTML == "Study hiragana chart") {
-      this.innerHTML = "Practice hiragana"
+    if (this.innerHTML == "Study "+ currentAlphabet +" chart") {
+      this.innerHTML = "Practice "+ currentAlphabet;
     } else {
-      this.innerHTML = "Study hiragana chart"
+      this.innerHTML = "Study "+ currentAlphabet +" chart"
     }
   });
   
